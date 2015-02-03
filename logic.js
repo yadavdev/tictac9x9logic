@@ -4,6 +4,7 @@ var box_to_be_active=-1;
 var whosturn=0;
 var turn=0;
 var box_active=[1,1,1,1,1,1,1,1,1,1];
+
 function win(parameter){
 	curr_id=parameter.id;
 	box=curr_id.slice(1,2);
@@ -24,7 +25,7 @@ function win(parameter){
 		if(whosturn==1)
 					whowon=1;
 		else whowon=2;
-		alert("player"+whowon+" won!");
+		tempAlert(("Player "+whowon+": won box#"+box),2000);
 		//since box is now won we restrict acess to this box;
 		//box_to_be_active=-1;
 		box_active[box]=-10;
