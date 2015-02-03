@@ -3,8 +3,7 @@
 var box_to_be_active=-1;
 var whosturn=0;
 var turn=0;
-var last_move;
-var box_inactive
+var box_active=[1,1,1,1,1,1,1,1,1,1];
 function win(parameter){
 	curr_id=parameter.id;
 	box=curr_id.slice(1,2);
@@ -26,8 +25,9 @@ function win(parameter){
 					whowon=1;
 		else whowon=2;
 		alert("player"+whowon+" won!");
-		introduce_ele();
-
+		//since box is now won we restrict acess to this box;
+		box_to_be_active=-1;
+		box_active[box]=-10;
 	}
 
 
@@ -67,6 +67,7 @@ function clicked (parameter) {
 		// 		introduce_ele();
 		// 		return;
 		// }
+
 		var curr_id=parameter.id;
 		var string= curr_id.slice(1);
 		var curr_box=curr_id.slice(1,2);
@@ -83,25 +84,27 @@ function clicked (parameter) {
 
 			box_to_be_active=string.slice(1);
 			//alert(box_to_be_active);
-			document.getElementById("box"+box_to_be_active).style.backgroundColor="yellow";
 
-			last_move=curr_id;
 			changevalue(parameter);
+			if(box_to_be_active!=-1)
+				document.getElementById("box"+box_to_be_active).style.backgroundColor="yellow";
+
 		}
 		else{
 
 			//document.getElementById(curr_id).style.backgroundColor="yellow"; //color of the box according to original wrong idea.
 			//just before box_to_be_active condition for win checks so that if a box is now out of scope then box to active becomes -1
-			last_move=curr_id;
+
 			box_to_be_active=string.slice(1);
 			
 //win-logic 
 
 			//if(either win or draw)
 				//document.getElementById("box"+box_to_be_active).style.backgroundColor="";
-			
-			document.getElementById("box"+box_to_be_active).style.backgroundColor="yellow";
 			changevalue(parameter);
+			if(box_to_be_active!=-1)
+			document.getElementById("box"+box_to_be_active).style.backgroundColor="yellow";
+			
 		}
 }
 
