@@ -1,9 +1,42 @@
 
 
-var box_to_be_active;
+var box_to_be_active=-1;
 var whosturn=0;
 var turn=0;
 var last_move;
+var box_inactive
+function win(parameter){
+	curr_id=parameter.id;
+	box=curr_id.slice(1,2);
+	dabba1=document.getElementById("b"+box+1).value;
+	dabba2=document.getElementById("b"+box+2).value;
+	dabba3=document.getElementById("b"+box+3).value;
+	dabba4=document.getElementById("b"+box+4).value;
+	dabba5=document.getElementById("b"+box+5).value;
+	dabba6=document.getElementById("b"+box+6).value;
+	dabba7=document.getElementById("b"+box+7).value;
+	dabba8=document.getElementById("b"+box+8).value;
+	dabba9=document.getElementById("b"+box+9).value;
+	var whowon=-1;
+	if((dabba1==dabba2 && dabba1!="" && dabba1==dabba3) || (dabba4==dabba5 && dabba5!="" && dabba5==dabba6) || (dabba7==dabba8 && dabba8!="" && dabba8==dabba9) || 
+		(dabba1==dabba4 && dabba4!="" && dabba4==dabba7) || (dabba2==dabba8 && dabba5!="" && dabba5==dabba8) || (dabba3==dabba6 && dabba6!="" && dabba6==dabba9) || 
+		(dabba1==dabba5 && dabba5!="" && dabba5==dabba8) || (dabba3==dabba5 && dabba5!="" && dabba5==dabba7) ){
+
+		if(whosturn==1)
+					whowon=1;
+		else whowon=2;
+		alert("player"+whowon+" won!");
+		introduce_ele();
+
+	}
+
+
+
+
+
+
+}
+
 
 function tempAlert(msg,duration)
 {
@@ -18,65 +51,65 @@ function tempAlert(msg,duration)
 
 function introduce_ele () {
 		var ele=document.createElement("div");
-		ele.innerHTML="lol";
-		ele.style.fontSize=100;
-		//ele.style.textAlign="center";
+		
+		ele.setAttribute("style","position:absolute;width:85px;height:68px;font-size:60px;background-color:grey;overflow:hidden; text-align:center");
+		ele.innerHTML="X";
 
-		document.getElementById("gamediv").appendChild(el);
+		document.getElementById("box1").appendChild(ele);
 }
 
 function clicked (parameter) {
-		if(parameter.value!="")
+		//alert(parameter.id + " clicked");
+		//return;
+		if(parameter.value!="") //incase the button is already pressed ...don't do anything
 				return;
-		if(turn==9){
-				introduce_ele();
-				return;
-		}
+		// if(turn==9){
+		// 		introduce_ele();
+		// 		return;
+		// }
 		var curr_id=parameter.id;
 		var string= curr_id.slice(1);
-		var curr_box=curr_id.slice(1,2)%3;
-		
-		if(curr_box==0)
-				curr_box=3;
+		var curr_box=curr_id.slice(1,2);
 
-		
-		if(turn!=0){
+		if(turn!=0 && box_to_be_active!= -1){
+
 			if(curr_box != box_to_be_active){
 					tempAlert("Incorrect box chosen",900);
 					return;
 				}
+			//alert(box_to_be_active);
+			document.getElementById("box"+box_to_be_active).style.backgroundColor="";
 
-			document.getElementById(last_move).style.backgroundColor="";
-			document.getElementById(curr_id).style.backgroundColor="yellow";
+
+			box_to_be_active=string.slice(1);
+			//alert(box_to_be_active);
+			document.getElementById("box"+box_to_be_active).style.backgroundColor="yellow";
 
 			last_move=curr_id;
-
-			box_to_be_active=string.slice(1)%3;
-		
-			if(box_to_be_active==0)
-				box_to_be_active=3;
-
 			changevalue(parameter);
 		}
 		else{
 
-			document.getElementById(curr_id).style.backgroundColor="yellow";
+			//document.getElementById(curr_id).style.backgroundColor="yellow"; //color of the box according to original wrong idea.
+			//just before box_to_be_active condition for win checks so that if a box is now out of scope then box to active becomes -1
 			last_move=curr_id;
-			box_to_be_active=string.slice(1)%3;
-			if(box_to_be_active==0)
-				box_to_be_active=3;
+			box_to_be_active=string.slice(1);
 			
+//win-logic 
+
+			//if(either win or draw)
+				//document.getElementById("box"+box_to_be_active).style.backgroundColor="";
+			
+			document.getElementById("box"+box_to_be_active).style.backgroundColor="yellow";
 			changevalue(parameter);
 		}
 }
 
 function changevalue(parameter){
+			
 
-		if(parameter.value==""){
-			whosturn=(whosturn+1)%2;
+		whosturn=(whosturn+1)%2;	
 			turn++;
-		}
-		else return;
 
 		if (whosturn==1) {
 			parameter.value="X";
@@ -87,16 +120,17 @@ function changevalue(parameter){
 			//parameter.style.backgroundColor="yellow";
 		}
 		
+		if(turn>4)
+				win(parameter);
+
+
+		document.getElementById("turnplayer").value="Turn: Player#"+eval(turn%2+1);
 	//	if(string==11)
 	//		document.getElementById(curr_id).style.backgroundColor="orange";
 	
-		if(turn==9){
-			//alert("Game Draw!");
-			//history.go(0);
-		}
+	/*	if(turn==9){
+			alert("Game Draw!");
+			history.go(0);
+		}*/ 
 	
 }
-
-
-
-
