@@ -217,13 +217,11 @@ function clicked (parameter) {
 }
 
 function changevalue(parameter){
-		
-		if(parameter.value==""){
+		//alert(whosturn);
+			
 			whosturn=(whosturn+1)%2;
 			turn++;
-		}
-		else return;
-
+			
 		if (whosturn==1) {
 			parameter.value="X";
 			//parameter.style.backgroundColor="red";
