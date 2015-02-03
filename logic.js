@@ -26,8 +26,25 @@ function win(parameter){
 		else whowon=2;
 		alert("player"+whowon+" won!");
 		//since box is now won we restrict acess to this box;
-		box_to_be_active=-1;
+		//box_to_be_active=-1;
 		box_active[box]=-10;
+
+		if(whowon==1){
+				var temp=9;
+				while(temp){
+					document.getElementById("b"+box+temp).value="X";
+					temp=temp-1;			
+				}
+				
+		}
+		else{
+				var temp=9;
+				while(temp){
+					document.getElementById("b"+box+temp).value="O";
+					temp=temp-1;
+				}
+
+		}
 	}
 
 
@@ -61,7 +78,7 @@ function introduce_ele () {
 function clicked (parameter) {
 		//alert(parameter.id + " clicked");
 		//return;
-		if(parameter.value!="") //incase the button is already pressed ...don't do anything
+		if(parameter.value!="" ) //incase the button is already pressed ...don't do anything
 				return;
 		// if(turn==9){
 		// 		introduce_ele();
@@ -72,6 +89,9 @@ function clicked (parameter) {
 		var string= curr_id.slice(1);
 		var curr_box=curr_id.slice(1,2);
 
+		if(box_active[curr_box]==-10)
+				return;
+					
 		if(turn!=0 && box_to_be_active!= -1){
 
 			if(curr_box != box_to_be_active){
@@ -83,6 +103,10 @@ function clicked (parameter) {
 
 
 			box_to_be_active=string.slice(1);
+
+			if(box_active[box_to_be_active]==-10)
+					box_to_be_active=-1; ///incase the box is no more active.
+
 			//alert(box_to_be_active);
 
 			changevalue(parameter);
