@@ -3,6 +3,7 @@
 var box_to_be_active=-1;
 var whosturn=0;
 var turn=0;
+var finalwin=0;
 var box_active=[1,1,1,1,1,1,1,1,1,1];
 
 function win(parameter){
@@ -20,7 +21,7 @@ function win(parameter){
 	var whowon=-1;
 	if((dabba1==dabba2 && dabba1!="" && dabba1==dabba3) || (dabba4==dabba5 && dabba5!="" && dabba5==dabba6) || (dabba7==dabba8 && dabba8!="" && dabba8==dabba9) || 
 		(dabba1==dabba4 && dabba4!="" && dabba4==dabba7) || (dabba2==dabba8 && dabba5!="" && dabba5==dabba8) || (dabba3==dabba6 && dabba6!="" && dabba6==dabba9) || 
-		(dabba1==dabba5 && dabba5!="" && dabba5==dabba8) || (dabba3==dabba5 && dabba5!="" && dabba5==dabba7) ){
+		(dabba1==dabba5 && dabba5!="" && dabba5==dabba9) || (dabba3==dabba5 && dabba5!="" && dabba5==dabba7) ){
 
 		if(whosturn==1)
 					whowon=1;
@@ -32,23 +33,38 @@ function win(parameter){
 
 		if(whowon==1){
 				var temp=9;
+				finalwin=finalwin+1;
 				while(temp){
 					document.getElementById("b"+box+temp).value="X";
 					temp=temp-1;			
 				}
 				
 		}
-		else{
+		else{	finalwin=finalwin-1;
 				var temp=9;
 				while(temp){
 					document.getElementById("b"+box+temp).value="O";
 					temp=temp-1;
 				}
+		if(box==box_to_be_active)
+				box_to_be_active=-1;
 
 		}
 	}
+	flag=0;
+	for(var m=1;m<10;m++){
+		if(box_active[m]==-10)
+				flag++;
+	}
+	if(flag==9){
+		if(finalwin>0)
+			alert("Player 1: WINS THE GAME");
+		if(finalwin<0)
+			alert("Player 2: WINS THE GAME");
+		if(finalwin==0)
+			alert("GAME DRAW!");
 
-
+	}
 
 
 
@@ -90,7 +106,7 @@ function clicked (parameter) {
 		var string= curr_id.slice(1);
 		var curr_box=curr_id.slice(1,2);
 
-		if(box_active[curr_box]==-10)
+		if(box_active[curr_box]== -10)
 				return;
 					
 		if(turn!=0 && box_to_be_active!= -1){
@@ -111,7 +127,7 @@ function clicked (parameter) {
 			//alert(box_to_be_active);
 
 			changevalue(parameter);
-			if(box_to_be_active!=-1)
+			if(box_to_be_active!= -1)
 				document.getElementById("box"+box_to_be_active).style.backgroundColor="yellow";
 
 		}
@@ -123,6 +139,10 @@ function clicked (parameter) {
 			box_to_be_active=string.slice(1);
 			
 //win-logic 
+			if(box_active[box_to_be_active]==-10){
+					box_to_be_active=-1;
+
+				}
 
 			//if(either win or draw)
 				//document.getElementById("box"+box_to_be_active).style.backgroundColor="";
