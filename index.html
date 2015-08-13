@@ -1,0 +1,154 @@
+<html>
+
+<head>
+<script type="text/javascript" src="logic.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style type="text/css">
+	.mainplaybutton{
+			min-width: 50px;
+			min-height: 50px;
+			font-size: 24px;
+			//text-align: center;
+			border-radius: 0px;
+			margin:0;
+	}
+
+	.mainform{
+			text-align: center;
+			position: relative;
+
+	}
+</style>
+
+</head>
+
+<body>
+
+<div id="gamediv" style="align:center;margin:0 auto;">
+
+<form class="mainform">
+<input type="button" class="btn btn-lg btn-primary" id="turnplayer" value="Turn: Player#1" style="text-align:center; border-radius:0px; margin-bottom:10px;margin-top:10px"></input><br/>
+<span id="box1" style="overflow:hidden; display: inline-block;border-right:1px solid black;border-bottom:1px solid black;">
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b11" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b12"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b13"  onclick="clicked(this);"></input><br/>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b14" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b15"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b16"  onclick="clicked(this);"></input><br/>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b17" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b18"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b19"  onclick="clicked(this);"></input><br/>
+</span><span id="box2" style="overflow:hidden; display: inline-block; border-right:1px solid black;border-bottom:1px solid black;">
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b21" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b22"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b23"  onclick="clicked(this);"></input><br/>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b24" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b25"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b26"  onclick="clicked(this);"></input><br/>
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b27" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b28"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b29"  onclick="clicked(this);"></input><br/>
+</span><span id="box3" style="overflow:hidden; display: inline-block;border-bottom:1px solid black;">
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b31" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b32"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b33"  onclick="clicked(this);"></input><br/>
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b34" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b35"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b36"  onclick="clicked(this);"></input><br/>
+
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b37" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b38"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b39"  onclick="clicked(this);"></input>
+</span>
+<br/>
+<span id="box4" style="overflow:hidden;  display:inline-block;border-right:1px solid black;border-bottom:1px solid black;">
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b41" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b42"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b43"  onclick="clicked(this);"></input><br/>
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b44" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b45"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b46"  onclick="clicked(this);"></input><br/>
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b47" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b48"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b49"  onclick="clicked(this);"></input><br/>
+</span><span id="box5" style="overflow:hidden; display: inline-block;border-right:1px solid black;border-bottom:1px solid black;">
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b51" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b52"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b53"  onclick="clicked(this);"></input><br/>
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b54" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b55"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b56"  onclick="clicked(this);"></input><br/>
+
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b57" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b58"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b59"  onclick="clicked(this);"></input><br/>
+</span><span id="box6" style="overflow:hidden; display: inline-block;border-bottom:1px solid black;">
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b61" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b62"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b63"  onclick="clicked(this);"></input><br/>
+
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b64" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b65"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b66"  onclick="clicked(this);"></input><br/>
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b67" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b68"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b69"  onclick="clicked(this);"></input><br/>
+
+</span>
+<br/>
+<span id="box7" style="overflow:hidden; display: inline-block;border-right:1px solid black;">
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b71" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b72"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b73"  onclick="clicked(this);"></input><br/>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b74" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b75"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b76"  onclick="clicked(this);"></input><br/>
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b77" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b78"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b79"  onclick="clicked(this);"></input><br/>
+
+</span><span id="box8" style="overflow:hidden; display: inline-block;border-right:1px solid black;">
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b81" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b82"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b83"  onclick="clicked(this);"></input><br/>
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b84" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b85"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b86"  onclick="clicked(this);"></input><br/>
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b87" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b88"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b89"  onclick="clicked(this);"></input><br/>
+</span><span id="box9" style="overflow:hidden; display: inline-block;">
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b91" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b92"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b93"  onclick="clicked(this);"></input><br/>
+
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b94" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b95"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b96"  onclick="clicked(this);"></input><br/>
+
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b97" onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b98"  onclick="clicked(this);"></input>
+<input type="button" class="mainplaybutton btn btn-sm btn-default text-center"id="b99"  onclick="clicked(this);"></input><br/>
+</span>
+</form></div>
+
+
+
+
+</body>
+
+</html>
